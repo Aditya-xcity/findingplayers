@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7ff">
+  <meta name="description" content="FindingPlayers helps students discover teammates, launch projects, and collaborate from idea to delivery.">
+  <title>FindingPlayers — Find your people. Build something real.</title>
+  <style>
+    :root{--ink:#1d1c2b;--muted:#777889;--line:#e9e7f0;--purple:#7655e8;--deep:#5c3bd0;--wash:#f8f7fc;--mint:#dff7eb;--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.6;background:#fff}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f0eef5;background:#ffffffed;position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;letter-spacing:-.8px}.mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--purple);color:#fff;box-shadow:0 5px 12px #7655e844}.brand em{font-style:normal;color:var(--purple);font-weight:500}.navlinks{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:650;color:#5d5a6e}.navlinks a:hover{color:var(--purple)}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:11px;padding:13px 18px;font-size:13px;font-weight:750;transition:transform .18s,box-shadow .18s}.button:hover{transform:translateY(-2px)}.primary{background:var(--purple);color:white;box-shadow:0 8px 20px #7655e82b}.primary:hover{background:var(--deep)}.secondary{border:1px solid #ded9ec;background:#fff}.nav .button{padding:10px 14px}.menu{display:none;border:0;background:none;font-size:24px}
+    .hero{padding:88px 0 60px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:35px;background:radial-gradient(ellipse at 80% 35%,#f0ebff 0%,#faf9ff 35%,#fff 70%)}.eyebrow{font-size:10px;font-weight:800;letter-spacing:1.7px;color:var(--purple);margin-bottom:15px}.pulse{display:inline-block;width:7px;height:7px;background:#4bc88a;border-radius:50%;margin-right:8px;box-shadow:0 0 0 4px #4bc88a20}.hero h1{font-size:clamp(43px,5.6vw,70px);line-height:1.02;letter-spacing:-4px;margin:0;font-weight:850}.hero h1 span,.section-title span{color:var(--purple)}.lead{max-width:520px;font-size:17px;line-height:1.8;color:#777587;margin:25px 0 28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.small-proof{display:flex;align-items:center;gap:12px;color:#777587;font-size:11px;margin-top:32px}.faces{display:flex;padding-left:5px}.faces i{font-style:normal;width:28px;height:28px;border:2px solid white;border-radius:50%;display:grid;place-items:center;margin-left:-5px;background:#f7c3b6;color:#704f61;font-size:9px;font-weight:800}.faces i:nth-child(2){background:#d8cffd}.faces i:nth-child(3){background:#c9f0df}.faces i:nth-child(4){background:#282638;color:#fff}
+    .visual{height:390px;position:relative;display:grid;place-items:center}.orbit{position:absolute;border:1px solid #dcd3ff;border-radius:50%;transform:rotate(-22deg)}.o1{width:380px;height:250px}.o2{width:300px;height:380px;transform:rotate(40deg);border-color:#e5defb}.orb{width:205px;height:205px;border-radius:48% 52% 60% 40%;background:linear-gradient(135deg,#a994ff,#6e4ce2 70%);box-shadow:0 25px 65px #7c5be34d;display:grid;place-items:center;transform:rotate(-9deg);position:relative;z-index:1}.orb-inner{width:125px;height:125px;border:1px solid #ffffff80;border-radius:40px;display:grid;place-items:center;color:#fff;font-size:72px;font-weight:850;transform:rotate(9deg);position:relative}.orb-inner span{position:absolute;right:5px;top:0;font-size:24px;color:#bdf4db}.dot{position:absolute;border:5px solid #fff;border-radius:50%;box-shadow:0 5px 15px #3c2a7b22}.d1{width:25px;height:25px;background:#ffb28e;top:10px;left:25px}.d2{width:18px;height:18px;background:#6fe0ad;bottom:25px;right:8px}.d3{width:13px;height:13px;background:#ffd45c;top:42px;right:-12px}.float{position:absolute;z-index:3;display:flex;gap:11px;align-items:center;background:#fff;padding:13px 16px;border:1px solid #eeeaf9;border-radius:13px;box-shadow:0 16px 50px #261c4b12;font-size:11px}.float b,.float small{display:block}.float b{font-size:12px}.float small{color:#8c899a;margin-top:3px}.float-icon{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:#eee9ff;color:var(--purple)}.f-top{top:32px;right:0}.f-bottom{bottom:34px;left:0}.f-bottom .float-icon{background:#e0f8ed;color:#239c68}.spark{position:absolute;color:#b3a1ff;font-size:25px}.s1{top:20px;left:50px}.s2{bottom:35px;right:45px;color:#ffb58e}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr) 1.2fr;gap:20px;align-items:center;padding:28px 0;border-top:1px solid #f2eff8;border-bottom:1px solid #f2eff8}.metric{display:flex;align-items:center;gap:12px;border-right:1px solid var(--line)}.metric strong{font-size:28px;letter-spacing:-1px}.metric span{font-size:11px;color:var(--muted)}.metric-note{text-align:right;font-size:12px;color:#888598;line-height:1.5}
+    section.content{padding:82px 0}.soft{background:#fbfaff}.heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}.section-title{font-size:clamp(29px,3.5vw,42px);line-height:1.12;letter-spacing:-1.8px;margin:0}.section-sub{color:var(--muted);font-size:13px;max-width:580px;margin:12px 0 0}.textlink{font-size:12px;font-weight:800;color:var(--purple);white-space:nowrap}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{border:1px solid #ebe8f4;background:white;border-radius:16px;padding:24px;min-height:200px}.feature-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#eee9ff;color:var(--purple);font-size:20px;margin-bottom:20px}.feature:nth-child(3n+2) .feature-icon{background:#e0f8ed;color:#239c68}.feature:nth-child(3n) .feature-icon{background:#fff0e7;color:#c46b39}.feature h3{font-size:16px;letter-spacing:-.4px;margin:0 0 8px}.feature p{font-size:12px;line-height:1.8;color:#858294;margin:0}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}.step{padding:22px;border:1px solid #eae6f5;border-radius:14px;background:#fff;position:relative}.step:before{counter-increment:step;content:"0" counter(step);font-size:11px;font-weight:850;color:var(--purple);letter-spacing:1px}.step h3{font-size:14px;margin:13px 0 7px}.step p{font-size:11px;color:#858294;line-height:1.7;margin:0}
+    .shots{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:15px}.shot{border:1px solid #e8e4f1;border-radius:16px;overflow:hidden;background:#fff}.shot-preview{height:190px;background:linear-gradient(135deg,#f0ebff,#fbfaff);padding:17px;display:flex;flex-direction:column;gap:10px}.shot-preview.dark{background:#252333}.fakebar{height:14px;border-radius:5px;background:#d8cffd;width:55%}.fakebar.wide{width:88%;background:#fff}.fakebox{height:65px;border:1px solid #dcd3ff;border-radius:9px;background:#ffffffa8}.fake-row{display:flex;gap:8px}.fake-row span{height:39px;flex:1;border-radius:7px;background:#fff;border:1px solid #e4def8}.shot-caption{padding:17px}.shot-caption h3{font-size:13px;margin:0 0 5px}.shot-caption p{font-size:11px;color:#8b8798;margin:0;line-height:1.6}.placeholder-note{display:block;color:#9b96aa;font-size:9px;margin-top:10px;font-weight:700;letter-spacing:.5px}
+    .stack{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stack-card{border:1px solid #eae7f2;border-radius:15px;padding:23px;display:flex;gap:15px;align-items:flex-start}.stack-icon{flex-shrink:0;width:43px;height:43px;border-radius:12px;display:grid;place-items:center;background:#eee9ff;color:var(--purple);font-weight:900}.stack-card h3{font-size:14px;margin:0 0 5px}.stack-card p{font-size:11px;color:#858294;line-height:1.7;margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.chips span{background:#f3f0ff;color:#6b55bb;border-radius:6px;padding:5px 8px;font-size:10px;font-weight:750}
+    .cta{padding:43px 48px;background:linear-gradient(110deg,#7655e8,#6040cf);border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:25px;color:white;position:relative;overflow:hidden}.cta .eyebrow{color:#d4caff}.cta h2{font-size:clamp(29px,4vw,40px);letter-spacing:-1.7px;line-height:1.1;margin:0}.cta p{font-size:12px;color:#e0d9ff;margin:10px 0 0}.cta .button{background:#fff;color:var(--purple);flex-shrink:0}.cta:after{content:"✳";position:absolute;right:30%;top:-50px;font-size:150px;color:#ffffff12;pointer-events:none}
+    .footer{padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#9793a3;font-size:10px}.footer .brand{font-size:16px;color:var(--ink)}.footer .mark{width:27px;height:27px;font-size:16px;border-radius:8px}.footer a{color:var(--purple);font-weight:700}.notice{margin:0 0 30px;padding:15px 17px;border:1px solid #e5defa;background:#faf8ff;border-radius:11px;color:#726a8a;font-size:12px}.notice b{color:#4b3a92}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:60px}.hero-copy{max-width:680px}.visual{height:330px}.metrics{grid-template-columns:repeat(3,1fr)}.metric-note{display:none}.features{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(2,1fr)}.shots{grid-template-columns:1fr 1fr}.shot:first-child{grid-column:span 2}.stack{grid-template-columns:1fr}}
+    @media(max-width:620px){.wrap{width:calc(100% - 36px)}.nav{height:67px}.menu{display:block}.navlinks{display:none;position:absolute;top:67px;left:0;right:0;background:white;padding:18px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.navlinks .button{text-align:center}.hero{padding:50px 0 45px;gap:8px}.hero h1{font-size:47px;letter-spacing:-2.8px}.lead{font-size:15px}.visual{height:280px;transform:scale(.9);margin:0 -15px}.orb{width:165px;height:165px}.orb-inner{width:100px;height:100px;font-size:58px}.o1{width:290px;height:190px}.o2{width:240px;height:280px}.f-top{right:0;top:8px}.f-bottom{left:0;bottom:7px}.metrics{padding:22px 0;gap:8px}.metric{display:block}.metric strong{display:block;font-size:24px}.metric span{font-size:9px}.content{padding:58px 0!important}.heading{align-items:flex-start;flex-direction:column}.features,.flow,.shots{grid-template-columns:1fr}.shot:first-child{grid-column:auto}.shot-preview{height:170px}.cta{padding:30px 25px;align-items:flex-start;flex-direction:column}.footer{flex-wrap:wrap}.footer>span:last-child{display:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+<header class="nav wrap">
+  <a class="brand" href="#top" aria-label="FindingPlayers home"><span class="mark">F</span><span>finding<em>players</em></span></a>
+  <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+    <a href="#about">About</a><a href="#features">Features</a><a href="#screenshots">Screenshots</a><a href="#technology">Tech stack</a>
+    <a class="button primary" href="#app">Explore the app ↗</a>
+  </nav>
+</header>
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="pulse"></span> A COLLABORATION PLATFORM FOR STUDENTS</div>
+      <h1>Find your people.<br><span>Build something real.</span></h1>
+      <p class="lead">FindingPlayers helps students discover teammates, turn ideas into projects, and work together from the first message to the final milestone.</p>
+      <div class="actions"><a class="button primary" href="#app">Explore FindingPlayers <span>↗</span></a><a class="button secondary" href="#features">See what you can do ↓</a></div>
+      <div class="small-proof"><div class="faces"><i>A</i><i>R</i><i>S</i><i>+</i></div><span>Built around skills, shared interests, and meaningful collaboration.</span></div>
+    </div>
+    <div class="visual" aria-label="Abstract illustration representing students collaborating">
+      <div class="orbit o1"></div><div class="orbit o2"></div>
+      <div class="orb"><div class="orb-inner">F<span>+</span></div><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i></div>
+      <div class="float f-top"><span class="float-icon">✦</span><div><b>Ideas become projects</b><small>One connection at a time</small></div></div>
+      <div class="float f-bottom"><span class="float-icon">✓</span><div><b>Better together</b><small>Skills · Trust · Momentum</small></div></div>
+      <span class="spark s1">✳</span><span class="spark s2">✦</span>
+    </div>
+  </section>
+  <div class="wrap metrics" aria-label="Platform concept">
+    <div class="metric"><strong>01</strong><span>Discover<br>teammates</span></div><div class="metric"><strong>02</strong><span>Launch<br>projects</span></div><div class="metric"><strong>03</strong><span>Build<br>together</span></div><div class="metric-note">From “I have an idea”<br>to “we made it happen.”</div>
+  </div>
+  <section class="content" id="about">
+    <div class="wrap">
+      <div class="heading"><div><div class="eyebrow">WHY FINDINGPLAYERS?</div><h2 class="section-title">Good ideas need<br><span>the right people.</span></h2><p class="section-sub">Finding a reliable teammate can be harder than coming up with an idea. This platform brings discovery, recruitment, and project coordination into one student-friendly space.</p></div></div>
+      <div class="notice"><b>Project status:</b> This page showcases the project concept and starter implementation. Live features depend on the Flask application being deployed separately.</div>
+    </div>
+  </section>
+  <section class="content soft" id="features">
+    <div class="wrap"><div class="heading"><div><div class="eyebrow">WHAT YOU CAN DO</div><h2 class="section-title">Everything starts<br>with <span>a connection.</span></h2></div><p class="section-sub">A path from discovering collaborators to building a track record of teamwork.</p></div>
+      <div class="features">
+        <article class="feature"><div class="feature-icon">⌕</div><h3>Find teammates</h3><p>Explore student profiles and search by skills, college, branch, and interests.</p></article>
+        <article class="feature"><div class="feature-icon">✳</div><h3>Host a project</h3><p>Publish an idea, outline goals, list required skills, and set a target team size.</p></article>
+        <article class="feature"><div class="feature-icon">↗</div><h3>Join a team</h3><p>Browse projects, send an application, and track its status from your dashboard.</p></article>
+        <article class="feature"><div class="feature-icon">▦</div><h3>Manage applications</h3><p>Project hosts can review applicants and accept or reject requests.</p></article>
+        <article class="feature"><div class="feature-icon">✓</div><h3>Track tasks</h3><p>Keep a lightweight project task list, due dates, and completion status in view.</p></article>
+        <article class="feature"><div class="feature-icon">☆</div><h3>Build trust</h3><p>Designed to grow toward contribution ratings and a history of completed collaborations.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="content" id="journey">
+    <div class="wrap"><div class="heading"><div><div class="eyebrow">THE USER JOURNEY</div><h2 class="section-title">From first hello<br>to <span>project complete.</span></h2></div></div>
+      <div class="flow"><article class="step"><h3>Create your profile</h3><p>Add your college, branch, skills, interests, and portfolio so potential collaborators can discover you.</p></article><article class="step"><h3>Discover or publish</h3><p>Find students with complementary skills, or post your own project and recruitment needs.</p></article><article class="step"><h3>Build together</h3><p>Apply to projects, review applicants, and organize work through tasks and deadlines.</p></article><article class="step"><h3>Show what you made</h3><p>Finish the project and build a record of collaboration and contribution over time.</p></article></div>
+    </div>
+  </section>
+  <section class="content soft" id="screenshots">
+    <div class="wrap"><div class="heading"><div><div class="eyebrow">A LOOK INSIDE</div><h2 class="section-title">Designed for the<br><span>whole journey.</span></h2><p class="section-sub">Replace these illustrative placeholders with real screenshots from your running application when available.</p></div></div>
+      <div class="shots">
+        <article class="shot"><div class="shot-preview"><div class="fakebar"></div><div class="fakebox"></div><div class="fake-row"><span></span><span></span><span></span></div><div class="fakebar" style="width:68%"></div><div class="fake-row"><span></span><span></span></div></div><div class="shot-caption"><h3>Explore projects</h3><p>Browse project cards and discover opportunities to contribute.</p><span class="placeholder-note">ILLUSTRATIVE PLACEHOLDER · REPLACE WITH SCREENSHOT</span></div></article>
+        <article class="shot"><div class="shot-preview"><div class="fakebar" style="width:60%"></div><div class="fakebox" style="height:45px"></div><div class="fakebox" style="height:45px"></div><div class="fakebar" style="width:75%"></div></div><div class="shot-caption"><h3>Student profiles</h3><p>Showcase skills, interests, and portfolio links.</p><span class="placeholder-note">ILLUSTRATIVE PLACEHOLDER</span></div></article>
+        <article class="shot"><div class="shot-preview dark"><div class="fakebar wide"></div><div class="fake-row"><span style="background:#51466f;border-color:#6f5b9c"></span><span style="background:#51466f;border-color:#6f5b9c"></span></div><div class="fakebox" style="background:#383448;border-color:#5c5278"></div><div class="fakebar" style="background:#8c78e8;width:70%"></div></div><div class="shot-caption"><h3>Team workspace</h3><p>Organize tasks and keep project progress visible.</p><span class="placeholder-note">ILLUSTRATIVE PLACEHOLDER</span></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="content" id="technology">
+    <div class="wrap"><div class="heading"><div><div class="eyebrow">BUILT WITH</div><h2 class="section-title">Simple stack.<br><span>Room to grow.</span></h2></div></div>
+      <div class="stack">
+        <article class="stack-card"><div class="stack-icon">Py</div><div><h3>Python + Flask</h3><p>Server-side routing, authentication flows, project operations, and JSON endpoints.</p><div class="chips"><span>Python</span><span>Flask</span><span>Jinja templates</span></div></div></article>
+        <article class="stack-card"><div class="stack-icon">DB</div><div><h3>SQLite</h3><p>Lightweight relational storage for users, projects, applications, tasks, and ratings.</p><div class="chips"><span>SQLite</span><span>SQL</span></div></div></article>
+        <article class="stack-card"><div class="stack-icon">⌘</div><div><h3>HTML + CSS</h3><p>Responsive layouts and accessible page structures for desktop and mobile.</p><div class="chips"><span>HTML5</span><span>CSS3</span><span>Responsive UI</span></div></div></article>
+        <article class="stack-card"><div class="stack-icon">JS</div><div><h3>JavaScript</h3><p>Small frontend interactions, mobile navigation, and form usability enhancements.</p><div class="chips"><span>Vanilla JS</span><span>Fetch-ready API</span></div></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="wrap" id="app"><div class="cta"><div><div class="eyebrow">READY TO EXPLORE?</div><h2>Find your next teammate.</h2><p>Open the live Flask app to register, browse projects, and try the current features.</p></div><a class="button" id="app-link" href="https://your-flask-app-url.example" target="_blank" rel="noopener">Open the app ↗</a></div><p class="section-sub" style="margin:12px 5px 0">Before publishing, replace the example URL in this button with your actual deployed Flask application URL.</p></section>
+</main>
+<footer class="wrap footer"><a class="brand" href="#top"><span class="mark">F</span><span>finding<em style="font-style:normal;color:var(--purple);font-weight:500">players</em></span></a><span>Student collaboration, from idea to impact.</span><a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">View source on GitHub ↗</a></footer>
+<script>
+  const menu = document.getElementById('menu');
+  const nav = document.getElementById('navlinks');
+  menu.addEventListener('click', () => {
+    const opened = nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(opened));
+  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+  }));
+  // Set your deployed Flask app URL here before publishing.
+  const FLASK_APP_URL = 'https://your-flask-app-url.example';
+  document.getElementById('app-link').href = FLASK_APP_URL;
+</script>
+</body>
+</html>

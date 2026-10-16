@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}FindingPlayers — Find your people, build something real{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="pulse"></span> YOUR NEXT GREAT TEAM STARTS HERE</div>
+    <h1>Find your people.<br><span>Build something real.</span></h1>
+    <p class="hero-sub">Meet ambitious students, discover projects, and turn your skills into work that matters.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="{{ url_for('members') }}">Find teammates <span>↗</span></a><a class="btn btn-secondary" href="{{ url_for('new_project') }}">Start a project <span>＋</span></a></div>
+    <div class="trust-row"><div class="avatar-stack"><i>A</i><i>R</i><i>S</i><i>+</i></div><span>Made for students who want to <b>make things happen.</b></span></div>
+  </div>
+  <div class="hero-art">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="floating-card card-top"><span class="mini-icon purple">✦</span><div><b>Ideas become projects</b><small>One connection at a time</small></div></div>
+    <div class="profile-orb"><div class="orb-inner">F<span>+</span></div><div class="orb-dot dot-one"></div><div class="orb-dot dot-two"></div><div class="orb-dot dot-three"></div></div>
+    <div class="floating-card card-bottom"><span class="mini-icon green">✓</span><div><b>Better together</b><small>Skills · Trust · Momentum</small></div></div>
+    <div class="decor decor-a">✳</div><div class="decor decor-b">✦</div>
+  </div>
+  <div class="hero-bottom"><span>DISCOVER</span><span>COLLABORATE</span><span>GROW</span><span class="hero-bottom-line"></span></div>
+</section>
+<section class="stats-strip">
+  <div><strong>{{ counts.students }}</strong><span>student profiles</span></div><div><strong>{{ counts.projects }}</strong><span>projects posted</span></div><div><strong>{{ counts.applications }}</strong><span>applications sent</span></div><div class="stats-note">Your next collaborator<br>could be one click away.</div>
+</section>
+<section class="section section-projects">
+  <div class="section-heading"><div><div class="eyebrow">FIND YOUR NEXT CHALLENGE</div><h2>Projects worth <span>showing up for.</span></h2></div><a class="text-link" href="{{ url_for('new_project') }}">Post a project <span>↗</span></a></div>
+  <form class="search-bar" action="{{ url_for('home') }}" method="get"><span class="search-symbol">⌕</span><input name="q" value="{{ q }}" placeholder="Search projects, ideas, technologies…"><input name="skill" value="{{ skill }}" placeholder="Skill (e.g. Python)"><button class="btn btn-primary" type="submit">Search</button></form>
+  <div class="project-grid">
+  {% for project in projects %}
+    <article class="project-card">
+      <div class="project-card-top"><span class="status-pill"><i></i>{{ project.status }}</span><span class="project-id">PROJECT / {{ "%02d"|format(project.id) }}</span></div>
+      <h3><a href="{{ url_for('project_detail', project_id=project.id) }}">{{ project.title }}</a></h3>
+      <p>{{ project.description|truncate(150) }}</p>
+      <div class="tag-row">{% for tag in project.skills.split(',')[:3] if tag.strip() %}<span class="tag">{{ tag.strip() }}</span>{% endfor %}</div>
+      <div class="project-meta"><span>◉ {{ project.owner_name }}</span><span>♧ {{ project.accepted_count }}/{{ project.team_size }} members</span></div>
+      <a class="card-link" href="{{ url_for('project_detail', project_id=project.id) }}">View project <span>↗</span></a>
+    </article>
+  {% else %}
+    <div class="empty-state"><span>✳</span><h3>No projects found yet</h3><p>Try another search, or be the first to host a project.</p><a class="btn btn-primary" href="{{ url_for('new_project') }}">Create a project</a></div>
+  {% endfor %}
+  </div>
+</section>
+<section class="section people-section">
+  <div class="section-heading"><div><div class="eyebrow">THE PEOPLE MAKE THE PROJECT</div><h2>Meet potential <span>teammates.</span></h2></div><a class="text-link" href="{{ url_for('members') }}">Explore students <span>↗</span></a></div>
+  <div class="people-grid">{% for person in members %}<article class="person-card"><div class="person-avatar">{{ person.name[:1]|upper }}</div><div class="person-main"><h3>{{ person.name }}</h3><p>{{ person.branch or 'Student' }}{% if person.college %} · {{ person.college }}{% endif %}</p><div class="tag-row">{% for tag in person.skills.split(',')[:2] if tag.strip() %}<span class="tag">{{ tag.strip() }}</span>{% endfor %}</div></div><a class="round-arrow" href="{{ url_for('members') }}" aria-label="Explore students">↗</a></article>{% endfor %}</div>
+</section>
+<section class="cta-band"><div><div class="eyebrow">YOUR IDEA HAS A PLACE HERE</div><h2>Don't build alone.</h2><p>Bring the idea. Find the team. Make it happen.</p></div><a class="btn btn-light" href="{{ url_for('register') }}">Create your profile <span>↗</span></a><div class="cta-spark">✳</div></section>
+{% endblock %}

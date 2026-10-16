@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Host a project — FindingPlayers{% endblock %}
+{% block content %}
+<section class="page-wrap narrow"><div class="page-title"><div class="eyebrow">BRING YOUR IDEA TO LIFE</div><h1>Start something <span>worth building.</span></h1><p>Tell students what you're building and who you'd love to have on your team.</p></div>
+<form method="post" class="panel form-stack">
+<label>Project title<input name="title" required maxlength="120" placeholder="e.g. AI-powered campus navigator"></label>
+<label>What are you building?<textarea name="description" required rows="5" placeholder="Describe the problem, your idea, and what success looks like…"></textarea></label>
+<label>Skills you're looking for <span class="label-hint">Separate skills with commas</span><input name="skills" placeholder="Flask, Python, UI/UX, machine learning"></label>
+<div class="form-two"><label>Team size<input name="team_size" type="number" min="2" max="30" value="4"></label><label>Target deadline<input name="deadline" type="date" min="{{ '' }}"></label></div>
+<div class="form-actions"><a class="btn btn-secondary" href="{{ url_for('home') }}">Cancel</a><button class="btn btn-primary" type="submit">Publish project <span>↗</span></button></div>
+</form></section>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7ff">
+  <title>{% block title %}FindingPlayers{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">F</span><span>finding<span class="brand-light">players</span></span></a>
+  <button class="mobile-menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="nav-links">
+    <a href="{{ url_for('home') }}">Explore</a>
+    <a href="{{ url_for('members') }}">Find people</a>
+    {% if user %}
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('profile') }}">My profile</a>
+      <a class="nav-cta" href="{{ url_for('new_project') }}">＋ Host a project</a>
+      <a href="{{ url_for('logout') }}">Sign out</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Sign in</a>
+      <a class="nav-cta" href="{{ url_for('register') }}">Get started <span>↗</span></a>
+    {% endif %}
+  </nav>
+</header>
+<main>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-stack">
+      {% for category, message in messages %}<div class="flash flash-{{ category }}">{{ message }}<button class="flash-close" aria-label="Dismiss">×</button></div>{% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer class="site-footer"><div class="brand"><span class="brand-mark">F</span><span>finding<span class="brand-light">players</span></span></div><span>Good teams make great things.</span><span>Built for student collaboration.</span></footer>
+</body>
+</html>

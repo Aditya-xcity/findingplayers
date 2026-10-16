@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Find teammates — FindingPlayers{% endblock %}
+{% block content %}
+<section class="page-wrap"><div class="page-title"><div class="eyebrow">YOUR FUTURE TEAMMATES</div><h1>Talent is everywhere.<br><span>Find your match.</span></h1><p>Search by name, college, interests, or the skills your project needs.</p></div>
+<form class="search-bar member-search" method="get"><span class="search-symbol">⌕</span><input name="q" value="{{ q }}" placeholder="Name, college, or interest"><input name="skill" value="{{ skill }}" placeholder="Skill (e.g. Python)"><button class="btn btn-primary">Find people</button></form>
+<div class="people-grid people-grid-large">{% for person in members %}<article class="person-card"><div class="person-avatar">{{ person.name[:1]|upper }}</div><div class="person-main"><h3>{{ person.name }} {% if user and user.id == person.id %}<small class="you-pill">YOU</small>{% endif %}</h3><p>{{ person.branch or 'Student' }}{% if person.college %} · {{ person.college }}{% endif %}</p>{% if person.bio %}<p class="person-bio">{{ person.bio }}</p>{% endif %}<div class="tag-row">{% for tag in person.skills.split(',')[:4] if tag.strip() %}<span class="tag">{{ tag.strip() }}</span>{% endfor %}</div>{% if person.portfolio %}<a class="inline-link" href="{{ person.portfolio }}" target="_blank" rel="noopener">Portfolio ↗</a>{% endif %}</div></article>{% else %}<div class="empty-state"><h3>No matches found</h3><p>Try a broader search.</p></div>{% endfor %}</div></section>
+{% endblock %}

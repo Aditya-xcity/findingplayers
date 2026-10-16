@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}My profile — FindingPlayers{% endblock %}
+{% block content %}
+<section class="page-wrap narrow"><div class="page-title"><div class="eyebrow">YOUR COLLABORATOR CARD</div><h1>Make your skills <span>discoverable.</span></h1><p>Give potential teammates a quick sense of what you bring to the table.</p></div>
+<form method="post" class="panel form-stack">
+<div class="form-two"><label>Full name<input value="{{ user.name }}" disabled></label><label>Email<input value="{{ user.email }}" disabled></label></div>
+<div class="form-two"><label>College<input name="college" value="{{ user.college }}" placeholder="College / university"></label><label>Branch<input name="branch" value="{{ user.branch }}" placeholder="e.g. Computer Science"></label></div>
+<label>Short bio<textarea name="bio" rows="3" placeholder="What are you interested in building?">{{ user.bio }}</textarea></label>
+<label>Skills <span class="label-hint">Separate skills with commas</span><input name="skills" value="{{ user.skills }}" placeholder="Python, UI/UX, React, research"></label>
+<label>Interests <span class="label-hint">Separate interests with commas</span><input name="interests" value="{{ user.interests }}" placeholder="AI, climate tech, design"></label>
+<label>Portfolio link<input type="url" name="portfolio" value="{{ user.portfolio }}" placeholder="https://github.com/yourname"></label>
+<div class="form-actions"><a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Cancel</a><button class="btn btn-primary" type="submit">Save profile <span>↗</span></button></div>
+</form></section>
+{% endblock %}

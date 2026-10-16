@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Create account' if mode == 'register' else 'Sign in' }} — FindingPlayers{% endblock %}
+{% block content %}
+<section class="auth-wrap"><div class="auth-side"><div class="eyebrow">YOUR PEOPLE ARE OUT THERE</div><h1>Big things<br>are rarely built <span>alone.</span></h1><p>Find collaborators who care about the same things you do.</p><div class="auth-quote">“The right team can turn a side project into your next big thing.”</div><div class="auth-decoration">F<span>+</span></div></div>
+<div class="auth-panel"><div class="auth-heading"><span class="auth-icon">✳</span><h2>{{ 'Create your account' if mode == 'register' else 'Welcome back' }}</h2><p>{{ 'Start with the basics. You can complete your profile next.' if mode == 'register' else 'Sign in to pick up where your team left off.' }}</p></div>
+<form method="post" class="form-stack">
+{% if mode == 'register' %}<label>Full name<input name="name" required autocomplete="name" placeholder="e.g. Aditi Sharma"></label>{% endif %}
+<label>College email<input type="email" name="email" required autocomplete="email" placeholder="you@college.edu"></label>
+<label>Password<input type="password" name="password" required minlength="8" autocomplete="{{ 'new-password' if mode == 'register' else 'current-password' }}" placeholder="{{ 'At least 8 characters' if mode == 'register' else 'Your password' }}"></label>
+{% if mode == 'register' %}<div class="form-two"><label>College<input name="college" placeholder="Your college"></label><label>Branch<input name="branch" placeholder="e.g. CSE"></label></div>{% endif %}
+<button class="btn btn-primary btn-full" type="submit">{{ 'Create account' if mode == 'register' else 'Sign in' }} <span>↗</span></button>
+</form><p class="auth-switch">{{ 'Already have an account?' if mode == 'register' else 'New to FindingPlayers?' }} <a href="{{ url_for('login' if mode == 'register' else 'register') }}">{{ 'Sign in' if mode == 'register' else 'Create an account' }}</a></p>
+{% if mode == 'login' %}<div class="demo-hint"><b>Demo account</b><span>demo@findingplayers.test · demo1234</span></div>{% endif %}
+</div></section>
+{% endblock %}
